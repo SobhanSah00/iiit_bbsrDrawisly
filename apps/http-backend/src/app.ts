@@ -27,11 +27,13 @@ import roomRouter from "./routes/room.route";
 import chatRouter from "./routes/chat.route";
 import drawRouter from "./routes/draw.route";
 import skillRouter from "./routes/skill.route";
+import sessionUploadRouter from "./routes/session.route"
 
 app.use("/api/v1/auth", userRouter);
 app.use("/api/v1/room", roomRouter);
 app.use("/api/v1/chat", chatRouter);
 app.use("/api/v1/draw", drawRouter);
 app.use("/api/v1/skill", skillRouter);
+app.use("/api/v1/session", sessionUploadRouter)
 
 export default app;

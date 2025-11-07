@@ -136,6 +136,7 @@ export async function fetchAllRoomsOfParticipantsController(req: Request, res: R
             createdAt: true,
           },
         },
+        recordings : true,
         draw: {
           take: 10,
         },
@@ -202,6 +203,7 @@ export async function fetchAllRoomOfAdminController(req: Request, res: Response)
             createdAt: true,
           },
         },
+        recordings : true,
         draw: {
           take: 10,
         },

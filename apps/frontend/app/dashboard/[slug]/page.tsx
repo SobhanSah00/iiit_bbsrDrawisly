@@ -6,6 +6,7 @@ import ChatPanel from "@/components/ChatPanel";
 import DrawingPanel from "@/components/DrawingPanel";
 import { MessageSquare, X } from "lucide-react";
 import ZegoMiniFrame from "@/components/ZegoMiniFrame";
+import SessionRecorder from "@/components/SessionRecorder";
 
 interface Drawing {
   id: string;
@@ -78,6 +79,8 @@ export default function RoomDetailPage() {
     <div className="flex h-screen bg-[#0a0a0a] overflow-hidden">
 
       {roomId && <ZegoMiniFrame roomId={roomId} />}
+
+      {roomId && <SessionRecorder roomId={roomId} />}
       
       {/* Drawing Panel */}
       <div 
