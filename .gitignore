@@ -1,2 +1,4 @@
 venv
 checker
+__pycache__
+.env

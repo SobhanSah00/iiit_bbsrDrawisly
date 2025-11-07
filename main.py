@@ -1,8 +1,5 @@
 from fastapi import FastAPI, Request, HTTPException
-from pydantic import BaseModel
-
-# class EmbedDescription(BaseModel):
-#     description : str
+from models import DescriptionModel
     
 app = FastAPI()
 
@@ -13,8 +10,12 @@ def health_check():
     }
 
 @app.post("/embed_description")
-def description_emebedding(description : str):
+async def description_emebedding(data : DescriptionModel):
+    
+    
     if description == '':
         raise HTTPException(status_code=401, detail="Description can't be none")
+    
+    
     
     
