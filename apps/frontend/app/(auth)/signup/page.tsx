@@ -3,7 +3,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Pencil, Mail, Lock, User, ArrowRight, AlertCircle, Check } from "lucide-react";
+import {
+  Pencil,
+  Mail,
+  Lock,
+  User,
+  ArrowRight,
+  AlertCircle,
+  Check,
+} from "lucide-react";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -42,7 +50,7 @@ export default function SignUpPage() {
         setUsername("");
         setEmail("");
         setPassword("");
-        setTimeout(() => router.push("/dashboard"), 1000);
+        setTimeout(() => router.push("/skillDashboard"), 1000);
         console.log("User:", data.user);
       } else {
         setMessage(data.error || data.message || "Sign up failed");
@@ -57,9 +65,14 @@ export default function SignUpPage() {
     }
   };
 
-  const passwordStrength = password.length > 0 ? (
-    password.length < 6 ? "weak" : password.length < 10 ? "medium" : "strong"
-  ) : null;
+  const passwordStrength =
+    password.length > 0
+      ? password.length < 6
+        ? "weak"
+        : password.length < 10
+          ? "medium"
+          : "strong"
+      : null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50 flex items-center justify-center p-4">
@@ -72,7 +85,10 @@ export default function SignUpPage() {
       <div className="w-full max-w-md relative">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center justify-center space-x-2 mb-4 group">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center space-x-2 mb-4 group"
+          >
             <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform">
               <Pencil className="w-7 h-7 text-white -rotate-12 group-hover:rotate-0 transition-transform" />
             </div>
@@ -80,7 +96,9 @@ export default function SignUpPage() {
               Drawisly
             </span>
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Create your account</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Create your account
+          </h1>
           <p className="text-gray-600">Start collaborating in minutes</p>
         </div>
 
@@ -91,9 +109,12 @@ export default function SignUpPage() {
             {[
               "Unlimited collaborative rooms",
               "Real-time chat and drawing",
-              "Free forever, no credit card"
+              "Free forever, no credit card",
             ].map((benefit, idx) => (
-              <div key={idx} className="flex items-center space-x-2 text-sm text-gray-600">
+              <div
+                key={idx}
+                className="flex items-center space-x-2 text-sm text-gray-600"
+              >
                 <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                   <Check className="w-3 h-3 text-green-600" />
                 </div>
@@ -105,7 +126,10 @@ export default function SignUpPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Username Input */}
             <div>
-              <label htmlFor="username" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label
+                htmlFor="username"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
                 Username
               </label>
               <div className="relative">
@@ -126,7 +150,10 @@ export default function SignUpPage() {
 
             {/* Email Input */}
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
                 Email
               </label>
               <div className="relative">
@@ -147,7 +174,10 @@ export default function SignUpPage() {
 
             {/* Password Input */}
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
                 Password
               </label>
               <div className="relative">
@@ -168,24 +198,27 @@ export default function SignUpPage() {
               {passwordStrength && (
                 <div className="mt-2 flex items-center space-x-2">
                   <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className={`h-full transition-all ${
-                        passwordStrength === "weak" 
-                          ? "w-1/3 bg-red-500" 
-                          : passwordStrength === "medium" 
-                          ? "w-2/3 bg-yellow-500" 
-                          : "w-full bg-green-500"
+                        passwordStrength === "weak"
+                          ? "w-1/3 bg-red-500"
+                          : passwordStrength === "medium"
+                            ? "w-2/3 bg-yellow-500"
+                            : "w-full bg-green-500"
                       }`}
                     ></div>
                   </div>
-                  <span className={`text-xs font-medium ${
-                    passwordStrength === "weak" 
-                      ? "text-red-600" 
-                      : passwordStrength === "medium" 
-                      ? "text-yellow-600" 
-                      : "text-green-600"
-                  }`}>
-                    {passwordStrength.charAt(0).toUpperCase() + passwordStrength.slice(1)}
+                  <span
+                    className={`text-xs font-medium ${
+                      passwordStrength === "weak"
+                        ? "text-red-600"
+                        : passwordStrength === "medium"
+                          ? "text-yellow-600"
+                          : "text-green-600"
+                    }`}
+                  >
+                    {passwordStrength.charAt(0).toUpperCase() +
+                      passwordStrength.slice(1)}
                   </span>
                 </div>
               )}
@@ -193,18 +226,24 @@ export default function SignUpPage() {
 
             {/* Terms */}
             <div className="flex items-start">
-              <input 
-                type="checkbox" 
-                required 
-                className="w-4 h-4 mt-1 text-orange-600 border-gray-300 rounded focus:ring-orange-500" 
+              <input
+                type="checkbox"
+                required
+                className="w-4 h-4 mt-1 text-orange-600 border-gray-300 rounded focus:ring-orange-500"
               />
               <label className="ml-2 text-sm text-gray-600">
                 I agree to the{" "}
-                <Link href="/terms" className="text-orange-600 hover:text-orange-700 font-semibold">
+                <Link
+                  href="/terms"
+                  className="text-orange-600 hover:text-orange-700 font-semibold"
+                >
                   Terms of Service
-                </Link>
-                {" "}and{" "}
-                <Link href="/privacy" className="text-orange-600 hover:text-orange-700 font-semibold">
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/privacy"
+                  className="text-orange-600 hover:text-orange-700 font-semibold"
+                >
                   Privacy Policy
                 </Link>
               </label>
@@ -216,7 +255,9 @@ export default function SignUpPage() {
               disabled={isLoading}
               className="group w-full px-6 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
-              <span>{isLoading ? "Creating account..." : "Create Account"}</span>
+              <span>
+                {isLoading ? "Creating account..." : "Create Account"}
+              </span>
               {!isLoading && (
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               )}
@@ -224,11 +265,13 @@ export default function SignUpPage() {
 
             {/* Message */}
             {message && (
-              <div className={`flex items-center space-x-2 p-4 rounded-xl ${
-                isError 
-                  ? "bg-red-50 text-red-700 border border-red-200" 
-                  : "bg-green-50 text-green-700 border border-green-200"
-              }`}>
+              <div
+                className={`flex items-center space-x-2 p-4 rounded-xl ${
+                  isError
+                    ? "bg-red-50 text-red-700 border border-red-200"
+                    : "bg-green-50 text-green-700 border border-green-200"
+                }`}
+              >
                 <AlertCircle className="w-5 h-5 flex-shrink-0" />
                 <p className="text-sm font-medium">{message}</p>
               </div>
@@ -239,7 +282,10 @@ export default function SignUpPage() {
         {/* Sign In Link */}
         <p className="text-center mt-6 text-gray-600">
           Already have an account?{" "}
-          <Link href="/signin" className="font-semibold text-orange-600 hover:text-orange-700 transition-colors">
+          <Link
+            href="/signin"
+            className="font-semibold text-orange-600 hover:text-orange-700 transition-colors"
+          >
             Sign in
           </Link>
         </p>

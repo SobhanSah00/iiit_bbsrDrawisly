@@ -29,6 +29,31 @@ model User {
 
   // One-to-many: User's messages
   chat Chat[]
+
+  skills UserSkill[]
+}
+
+enum ExperienceLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+model UserSkill {
+  id              String           @id @default(uuid())
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId          String
+
+  skillName       String
+  focusArea       String        
+  experienceLevel ExperienceLevel
+  description     String
+
+  components      String[]         @default([]) // MERN example
+  tools           String[]         @default([]) // DevOps example
+
+  createdAt       DateTime         @default(now())
 }
 
 model Room {

@@ -37,9 +37,15 @@ export default function SignInPage() {
       if (res.ok) {
         setMessage("Sign in successful! Redirecting...");
         setIsError(false);
+
+        // ✅ ADD THESE LINES - Store user_id in localStorage
+        if (data.user && data.user.id) {
+          localStorage.setItem("user_id", data.user.id);
+        }
+
         setUsername("");
         setPassword("");
-        setTimeout(() => router.push("/dashboard"), 1000);
+        setTimeout(() => router.push("/skillDashboard"), 1000);
         console.log("User:", data.user);
       } else {
         setMessage(data.error || data.message || "Sign in failed");
@@ -65,7 +71,10 @@ export default function SignInPage() {
       <div className="w-full max-w-md relative">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center justify-center space-x-2 mb-4 group">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center space-x-2 mb-4 group"
+          >
             <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center transform rotate-12 group-hover:rotate-0 transition-transform">
               <Pencil className="w-7 h-7 text-white -rotate-12 group-hover:rotate-0 transition-transform" />
             </div>
@@ -73,7 +82,9 @@ export default function SignInPage() {
               Drawisly
             </span>
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome back!</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            Welcome back!
+          </h1>
           <p className="text-gray-600">Sign in to continue collaborating</p>
         </div>
 
@@ -82,7 +93,10 @@ export default function SignInPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Username Input */}
             <div>
-              <label htmlFor="username" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label
+                htmlFor="username"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
                 Username
               </label>
               <div className="relative">
@@ -103,7 +117,10 @@ export default function SignInPage() {
 
             {/* Password Input */}
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-gray-700 mb-2"
+              >
                 Password
               </label>
               <div className="relative">
@@ -147,10 +164,13 @@ export default function SignInPage() {
 
             {/* Message */}
             {message && (
-              <div className={`flex items-center space-x-2 p-4 rounded-xl ${isError
-                  ? "bg-red-50 text-red-700 border border-red-200"
-                  : "bg-green-50 text-green-700 border border-green-200"
-                }`}>
+              <div
+                className={`flex items-center space-x-2 p-4 rounded-xl ${
+                  isError
+                    ? "bg-red-50 text-red-700 border border-red-200"
+                    : "bg-green-50 text-green-700 border border-green-200"
+                }`}
+              >
                 <AlertCircle className="w-5 h-5 flex-shrink-0" />
                 <p className="text-sm font-medium">{message}</p>
               </div>
@@ -161,7 +181,10 @@ export default function SignInPage() {
         {/* Sign Up Link */}
         <p className="text-center mt-6 text-gray-600">
           Don't have an account?{" "}
-          <Link href="/signup" className="font-semibold text-orange-600 hover:text-orange-700 transition-colors">
+          <Link
+            href="/signup"
+            className="font-semibold text-orange-600 hover:text-orange-700 transition-colors"
+          >
             Sign up for free
           </Link>
         </p>
