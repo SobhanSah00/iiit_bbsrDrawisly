@@ -24,7 +24,10 @@ export default function DashboardPage() {
   const [rooms, setRooms] = useState<Room[]>([]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const router = useRouter()
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [roomTitle, setRoomTitle] = useState("");
+  const [creating, setCreating] = useState(false);
+  const router = useRouter();
 
   const API_URL = "http://localhost:5050";
 
@@ -64,9 +67,50 @@ export default function DashboardPage() {
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   };
 
-  const handleDashBorardToRoom = (joinCode : string) => {
-    router.push(`dashboard/${joinCode}`)
-  }
+  const handleDashBorardToRoom = (joinCode: string) => {
+    router.push(`dashboard/${joinCode}`);
+  };
+
+  const handleCreateRoom = async () => {
+    if (!roomTitle.trim()) {
+      setMessage("Please enter a room title");
+      return;
+    }
+
+    setCreating(true);
+    try {
+      const res = await fetch(`${API_URL}/api/v1/room/createRoom`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ title: roomTitle }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage("Room created successfully!");
+        setShowCreateModal(false);
+        setRoomTitle("");
+        // Switch to admin tab and refresh rooms
+        setActiveTab("admin");
+        // Re-fetch rooms
+        const roomsRes = await fetch(`${API_URL}/api/v1/room/adminRoom`, {
+          credentials: "include",
+        });
+        const roomsData = await roomsRes.json();
+        if (roomsRes.ok) setRooms(roomsData.rooms);
+      } else {
+        setMessage(data.message || "Failed to create room");
+      }
+    } catch (err) {
+      setMessage("Network error while creating room");
+    } finally {
+      setCreating(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-50">
@@ -85,7 +129,10 @@ export default function DashboardPage() {
                 <p className="text-sm text-gray-600">Manage your drawing rooms</p>
               </div>
             </div>
-            <button className="group px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center space-x-2">
+            <button
+              onClick={() => setShowCreateModal(true)}
+              className="group px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center space-x-2"
+            >
               <Plus className="w-5 h-5" />
               <span>New Room</span>
             </button>
@@ -135,7 +182,7 @@ export default function DashboardPage() {
 
         {/* Error Message */}
         {message && (
-          <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 text-red-700 text-center">
+          <div className={`${message.includes('successfully') ? 'bg-green-50 border-green-200 text-green-700' : 'bg-red-50 border-red-200 text-red-700'} border-2 rounded-xl p-4 text-center mb-6`}>
             {message}
           </div>
         )}
@@ -189,7 +236,10 @@ export default function DashboardPage() {
                     </div>
                   )}
 
-                  <button onClick={() => handleDashBorardToRoom(room.joincode)} className="w-full group/btn px-4 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center justify-center space-x-2">
+                  <button
+                    onClick={() => handleDashBorardToRoom(room.joincode)}
+                    className="w-full group/btn px-4 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center justify-center space-x-2"
+                  >
                     <span>Open Room</span>
                     <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
@@ -213,7 +263,10 @@ export default function DashboardPage() {
                 ? "Create your first drawing room to get started"
                 : "Join a room to start collaborating"}
             </p>
-            <button className="group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center space-x-2 mx-auto">
+            <button
+              onClick={() => setShowCreateModal(true)}
+              className="group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center space-x-2 mx-auto"
+            >
               <Plus className="w-5 h-5" />
               <span>Create New Room</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -221,6 +274,67 @@ export default function DashboardPage() {
           </div>
         )}
       </div>
+
+      {/* Create Room Modal */}
+      {showCreateModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Create New Room</h2>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Room Title
+                </label>
+                <input
+                  type="text"
+                  value={roomTitle}
+                  onChange={(e) => setRoomTitle(e.target.value)}
+                  placeholder="Enter room name..."
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-orange-500 focus:outline-none transition-colors"
+                  disabled={creating}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter' && roomTitle.trim()) {
+                      handleCreateRoom();
+                    }
+                  }}
+                />
+              </div>
+
+              <div className="flex space-x-3 pt-4">
+                <button
+                  onClick={() => {
+                    setShowCreateModal(false);
+                    setRoomTitle("");
+                    setMessage("");
+                  }}
+                  disabled={creating}
+                  className="flex-1 px-4 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-colors disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleCreateRoom}
+                  disabled={creating || !roomTitle.trim()}
+                  className="flex-1 px-4 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                >
+                  {creating ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      <span>Creating...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Plus className="w-5 h-5" />
+                      <span>Create</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
