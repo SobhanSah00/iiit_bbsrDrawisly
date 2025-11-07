@@ -1,8 +1,11 @@
 from prompts import sanitize_prompt
-from 
+from config import model
 
 class SanitizePipeline:
-    def __init__(self, ):
+    def __init__(self):
+        pass
+    def get_sanitized_description
+        
         
         
 class NoteMakingPipeline:
