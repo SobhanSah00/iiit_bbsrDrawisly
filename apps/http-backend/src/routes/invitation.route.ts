@@ -1,7 +1,10 @@
 import { Router } from "express";
 import {createInvitaion,getAllInvitationSendByThatParticularUser,getAllInvitationRecivedByUser,AcceptInvitation,RejectInvitation} from "../controllers/invitation.controller"
+import { authenticatedUser } from "../middleware/auth.middleware";
 
 const router: Router = Router();
+
+router.use(authenticatedUser);
 
 router.route("/createInvitation").post(createInvitaion)
 router.route("/getAllInvitationSendBytheUser/:senderId").get(getAllInvitationSendByThatParticularUser)
