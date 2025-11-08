@@ -27,4 +27,20 @@ Example Output:
 }
 """
 
+ambigous_checker_prompt = """
+You are a strict JSON generator.
+Determine if the user's query is ambiguous. Return only valid JSON.
+
+Example response:
+{{
+  "ambiguous": True,
+  "reason": "The query lacks specific context."
+}}
+
+Now analyze the following:
+
+User Query:
+{query}
+"""
+
 notemaking_prompt = """"""
