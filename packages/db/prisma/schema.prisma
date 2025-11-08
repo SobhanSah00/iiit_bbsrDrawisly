@@ -50,8 +50,8 @@ model UserSkill {
   experienceLevel ExperienceLevel
   description     String
 
-  components      String[]         @default([]) // MERN example
-  tools           String[]         @default([]) // DevOps example
+  components      String[]         @default([]) 
+  tools           String[]         @default([]) 
 
   createdAt       DateTime         @default(now())
 }
@@ -72,8 +72,23 @@ model Room {
   chat Chat[]
   draw Draw[]
 
+  recordings SessionRecording[]
+
   createdat DateTime @default(now())
 }
+
+model SessionRecording {
+  id        String   @id @default(uuid())
+  room      Room     @relation(fields: [roomId], references: [id])
+  roomId    String
+
+  url       String
+  size      Int?
+  duration  Int?
+  
+  createdAt DateTime @default(now())
+}
+
 
 model Chat {
   seriealNo Int    @default(autoincrement())

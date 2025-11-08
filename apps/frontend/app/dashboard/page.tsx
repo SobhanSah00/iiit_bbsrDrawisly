@@ -9,15 +9,25 @@ interface Room {
   title: string;
   joincode: string;
   createdat: string;
+
   admin: {
     username: string;
   };
+
   chat: {
     user: { username: string };
     content: string;
     createdAt: string;
   }[];
+
+  recordings: {
+    id: string;
+    url: string;
+    duration: number;
+    createdAt: string;
+  }[];
 }
+
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<"admin" | "participant">("admin");
@@ -146,11 +156,10 @@ export default function DashboardPage() {
         <div className="flex items-center space-x-4 mb-8">
           <button
             onClick={() => setActiveTab("admin")}
-            className={`relative px-8 py-3 rounded-xl font-semibold transition-all ${
-              activeTab === "admin"
+            className={`relative px-8 py-3 rounded-xl font-semibold transition-all ${activeTab === "admin"
                 ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg"
                 : "bg-white text-gray-700 hover:bg-orange-50 border-2 border-gray-200"
-            }`}
+              }`}
           >
             <div className="flex items-center space-x-2">
               <Sparkles className="w-5 h-5" />
@@ -160,11 +169,10 @@ export default function DashboardPage() {
 
           <button
             onClick={() => setActiveTab("participant")}
-            className={`relative px-8 py-3 rounded-xl font-semibold transition-all ${
-              activeTab === "participant"
+            className={`relative px-8 py-3 rounded-xl font-semibold transition-all ${activeTab === "participant"
                 ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg"
                 : "bg-white text-gray-700 hover:bg-orange-50 border-2 border-gray-200"
-            }`}
+              }`}
           >
             <div className="flex items-center space-x-2">
               <Users className="w-5 h-5" />
@@ -236,6 +244,24 @@ export default function DashboardPage() {
                     </div>
                   )}
 
+                  {room.recordings && room.recordings.length > 0 && (
+                    <div className="border-t border-gray-100 pt-4">
+                      <div className="text-gray-500 text-xs mb-2 flex items-center space-x-2">
+                        <span>🎥 Latest Recording</span>
+                      </div>
+
+                      <video
+                        controls
+                        src={room.recordings[0].url}
+                        className="w-full rounded-lg border border-gray-200"
+                      />
+
+                      <p className="text-xs text-gray-500 mt-1">
+                        Recorded on {formatDate(room.recordings[0].createdAt)}
+                      </p>
+                    </div>
+                  )}
+
                   <button
                     onClick={() => handleDashBorardToRoom(room.joincode)}
                     className="w-full group/btn px-4 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center justify-center space-x-2"
@@ -280,7 +306,7 @@ export default function DashboardPage() {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Create New Room</h2>
-            
+
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
