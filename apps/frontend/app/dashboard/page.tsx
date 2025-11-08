@@ -252,7 +252,7 @@ export default function DashboardPage() {
 
                       <video
                         controls
-                        src={room.recordings[0].url}
+                        src={room.recordings[room.recordings.length - 1].url}
                         className="w-full rounded-lg border border-gray-200"
                       />
 

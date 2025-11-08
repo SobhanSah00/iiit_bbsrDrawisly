@@ -149,7 +149,7 @@ export default function Dashboard() {
         }
       );
 
-      //   console.log(response);
+      console.log(response);
 
       //   const data: MatchResults = await response.json();
 
@@ -366,13 +366,12 @@ export default function Dashboard() {
                           </p>
                         </div>
                         <span
-                          className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                            match.relevance === "high"
+                          className={`px-3 py-1 rounded-full text-xs font-semibold ${match.relevance === "high"
                               ? "bg-green-100 text-green-700"
                               : match.relevance === "medium"
                                 ? "bg-orange-100 text-orange-700"
                                 : "bg-gray-100 text-gray-700"
-                          }`}
+                            }`}
                         >
                           {match.match_score}% Match
                         </span>

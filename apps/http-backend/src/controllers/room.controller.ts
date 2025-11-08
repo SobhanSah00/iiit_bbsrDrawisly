@@ -137,12 +137,12 @@ export async function fetchAllRoomsOfParticipantsController(req: Request, res: R
           },
         },
         recordings : true,
-        draw: {
-          take: 10,
-        },
+        // draw: {
+        //   take: 10,
+        // },
       },
       orderBy: {
-        createdat: "desc",
+        createdat: "asc",
       },
     });
 
@@ -204,12 +204,12 @@ export async function fetchAllRoomOfAdminController(req: Request, res: Response)
           },
         },
         recordings : true,
-        draw: {
-          take: 10,
-        },
+        // draw: {
+        //   take: 10,
+        // },
       },
       orderBy: {
-        createdat: "desc",
+        createdat: "asc",
       },
     })
 
