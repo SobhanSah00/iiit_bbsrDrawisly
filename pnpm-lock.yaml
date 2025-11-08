@@ -112,6 +112,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
+      '@types/axios':
+        specifier: ^0.14.4
+        version: 0.14.4
       '@types/bcrypt':
         specifier: ^6.0.0
         version: 6.0.0
@@ -697,6 +700,10 @@ packages:
 
   '@turbo/workspaces@2.5.0':
     resolution: {integrity: sha512-u/IOgWVJ6orFG0MDJ8UeIEOWjhfEBsMskhxC8pg2nRlu1qbEAGIerjhZFk+bEqSTHW1o+fxYr8ix0KEtX4M9Vg==}
+
+  '@types/axios@0.14.4':
+    resolution: {integrity: sha512-9JgOaunvQdsQ/qW2OPmE5+hCeUB52lQSolecrFrthct55QekhmXEwT203s20RL+UHtCQc15y3VXpby9E7Kkh/g==}
+    deprecated: This is a stub types definition. axios provides its own type definitions, so you do not need this installed.
 
   '@types/bcrypt@6.0.0':
     resolution: {integrity: sha512-/oJGukuH3D2+D+3H4JWLaAsJ/ji86dhRidzZ/Od7H/i8g+aCmvkeCc6Ni/f9uxGLSQVCRZkX2/lqEFG2BvWtlQ==}
@@ -3382,6 +3389,12 @@ snapshots:
       picocolors: 1.0.1
       semver: 7.6.2
       update-check: 1.5.4
+
+  '@types/axios@0.14.4':
+    dependencies:
+      axios: 1.13.2
+    transitivePeerDependencies:
+      - debug
 
   '@types/bcrypt@6.0.0':
     dependencies:

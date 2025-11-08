@@ -29,6 +29,7 @@
     "@repo/common": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/axios": "^0.14.4",
     "@types/bcrypt": "^6.0.0",
     "@types/cookie-parser": "^1.4.9",
     "@types/cors": "^2.8.19",

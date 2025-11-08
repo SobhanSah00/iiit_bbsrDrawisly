@@ -226,7 +226,7 @@ export default function Page() {
                         onChange={(e) =>
                           updateSkill(index, "skill_name", e.target.value)
                         }
-                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white"
+                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white text-gray-900"
                         placeholder="e.g., MERN Stack, DevOps, DSA"
                       />
                     </div>
@@ -241,7 +241,7 @@ export default function Page() {
                         onChange={(e) =>
                           updateSkill(index, "experience_level", e.target.value)
                         }
-                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white"
+                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white text-gray-900"
                       >
                         {experienceLevels.map((level) => (
                           <option key={level} value={level}>
@@ -254,7 +254,7 @@ export default function Page() {
                     {/* Focus Area */}
                     <div>
                       <label className="block text-gray-700 font-semibold mb-2">
-                        Focus Area (Optional)
+                        Focus Area
                       </label>
                       <input
                         type="text"
@@ -262,7 +262,7 @@ export default function Page() {
                         onChange={(e) =>
                           updateSkill(index, "focus_area", e.target.value)
                         }
-                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white"
+                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white text-gray-900"
                         placeholder="e.g., Backend Development, Cloud Infrastructure"
                       />
                     </div>
@@ -270,7 +270,7 @@ export default function Page() {
                     {/* Components */}
                     <div>
                       <label className="block text-gray-700 font-semibold mb-2">
-                        Components (Optional)
+                        Components
                       </label>
                       <div className="flex gap-2 mb-2">
                         <input
@@ -288,7 +288,7 @@ export default function Page() {
                               addComponent(index);
                             }
                           }}
-                          className="flex-1 px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white"
+                          className="flex-1 px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white text-gray-900"
                           placeholder="e.g., MongoDB, Express.js"
                         />
                         <button
@@ -319,7 +319,7 @@ export default function Page() {
                     {/* Tools */}
                     <div>
                       <label className="block text-gray-700 font-semibold mb-2">
-                        Tools (Optional)
+                        Tools
                       </label>
                       <div className="flex gap-2 mb-2">
                         <input
@@ -337,7 +337,7 @@ export default function Page() {
                               addTool(index);
                             }
                           }}
-                          className="flex-1 px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white"
+                          className="flex-1 px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white text-gray-900"
                           placeholder="e.g., Docker, GitHub Actions"
                         />
                         <button
@@ -375,7 +375,7 @@ export default function Page() {
                         onChange={(e) =>
                           updateSkill(index, "description", e.target.value)
                         }
-                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white"
+                        className="w-full px-4 py-2 border-2 border-orange-200 rounded-lg focus:outline-none focus:border-orange-500 bg-white text-gray-900"
                         rows={3}
                         placeholder="Describe your experience with this skill..."
                       />

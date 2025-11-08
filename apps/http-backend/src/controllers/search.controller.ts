@@ -30,7 +30,7 @@ export const searchController = async (
 ): Promise<void> => {
   try {
     const { query } = req.body;
-    const userId = req.body.userId;
+    const userId = req.userId;
 
     if (!query || typeof query !== "string") {
       res.status(400).json({
@@ -57,8 +57,7 @@ export const searchController = async (
 
     // Post to external backend
     const EXTERNAL_API_URL =
-      process.env.EXTERNAL_API_URL || "http://localhost:5050/"; //S>KJDBVuAGDV VOgaDOU> DB
-
+      process.env.EXTERNAL_API_URL || "http://localhost:8000/compatible-users";
     const response = await axios.post(EXTERNAL_API_URL, searchPayload, {
       headers: {
         "Content-Type": "application/json",

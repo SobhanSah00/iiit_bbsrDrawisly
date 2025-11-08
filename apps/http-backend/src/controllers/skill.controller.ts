@@ -1,5 +1,6 @@
 import { prisma } from "@repo/db/client";
 import { Request, Response } from "express";
+import axios from "axios";
 
 // Define the return type explicitly
 interface UserSkillsResponse {
@@ -71,9 +72,18 @@ export async function saveUserSkills(
       data: skillInsertPayload,
     });
 
+    try {
+      await axios.post("http://localhost:8000/user-profile-upload", {
+        user_id: userId,
+        skill_set: skill_set,
+      });
+    } catch (postError: any) {
+      console.error("⚠️ Error posting to external backend:", postError.message);
+    }
+
     res.status(200).json({
       success: true,
-      message: "Skills saved successfully",
+      message: "Skills saved successfully and posted to external backend",
       count: skill_set.length,
     });
   } catch (error: any) {
