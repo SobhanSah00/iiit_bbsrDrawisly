@@ -4,7 +4,7 @@ import { authenticatedUser } from "../middleware/auth.middleware";
 
 const router: Router = Router();
 
-router.use(authenticatedUser);
+// router.use(authenticatedUser);
 
 router.route("/createInvitation").post(createInvitaion)
 router.route("/getAllInvitationSendBytheUser/:senderId").get(getAllInvitationSendByThatParticularUser)

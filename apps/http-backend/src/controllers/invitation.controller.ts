@@ -3,29 +3,29 @@ import { prisma } from "@repo/db/client"
 import { } from "../controllers/room.controller"
 import { reandomeCodeGenerator } from "../utils/randomRoomCodeGenerate";
 
-export async function  createInvitaion(req: Request, res: Response) {
+export async function createInvitaion(req: Request, res: Response) {
     try {
         const { senderId, receiverId, message } = req.body;
 
         if (!senderId || !receiverId) {
             res.status(400).json({ error: "senderId and receiverId are required" });
-            return;
+            return; // ← ADD THIS
         }
 
         if (senderId === receiverId) {
             res.status(400).json({ error: "Cannot send invitation to yourself" });
+            return; // ← ADD THIS
         }
 
-        // Check for duplicate pending invite
         const existing = await prisma.invitation.findFirst({
             where: { senderId, receiverId, status: "PENDING" },
         });
 
         if (existing) {
             res.status(400).json({ error: "An invitation is already pending with this user" });
+            return; // ← ADD THIS
         }
 
-        // Create the invitation
         const invitation = await prisma.invitation.create({
             data: {
                 senderId,
@@ -43,7 +43,7 @@ export async function  createInvitaion(req: Request, res: Response) {
         console.error("Error creating invitation:", err);
         res.status(500).json({ error: "Failed to create invitation" });
     }
-};
+}
 
 export async function getAllInvitationSendByThatParticularUser(req: Request, res: Response) {
     try {
@@ -80,35 +80,32 @@ export async function getAllInvitationRecivedByUser(req: Request, res: Response)
 export async function AcceptInvitation(req: Request, res: Response) {
     try {
         const { id } = req.params;
-        const receiverId = req.body.userId; // assuming frontend sends current logged in user's ID
+        const receiverId = req.body.userId;
 
-        // 1️⃣ Find the invitation
         const invitation = await prisma.invitation.findUnique({ where: { id } });
         if (!invitation) {
             res.status(404).json({ error: "Invitation not found" });
-            return;
+            return; // ← ADD THIS
         }
 
         if (invitation.status !== "PENDING") {
             res.status(400).json({ error: "Invitation already responded to" });
+            return; // ← ADD THIS
         }
 
-        // 2️⃣ Validate that the one accepting is the receiver
         if (receiverId !== invitation.receiverId) {
             res.status(403).json({ error: "You are not authorized to accept this invitation" });
+            return; // ← ADD THIS
         }
 
-        // 3️⃣ Generate join code (you can reuse your random code generator)
         const joincode = reandomeCodeGenerator(7);
-
-        // 4️⃣ Create the room (based on your existing logic)
         const title = req.body.title || "Collaboration Room";
 
         const room = await prisma.room.create({
             data: {
                 title,
                 joincode,
-                adminId: invitation.senderId, // sender is the admin
+                adminId: invitation.senderId,
                 participants: {
                     connect: [
                         { id: invitation.senderId },
@@ -118,7 +115,6 @@ export async function AcceptInvitation(req: Request, res: Response) {
             },
         });
 
-        // 5️⃣ Update the invitation
         const updatedInvitation = await prisma.invitation.update({
             where: { id },
             data: {
@@ -127,20 +123,18 @@ export async function AcceptInvitation(req: Request, res: Response) {
             },
         });
 
-        // 6️⃣ Respond
         res.status(200).json({
             message: "Invitation accepted successfully. Room created.",
             room,
             invitation: updatedInvitation,
         });
-
     } catch (err) {
         console.error("Error accepting invitation:", err);
         res.status(500).json({
             error: "Failed to accept invitation",
         });
     }
-};
+}
 
 export async function RejectInvitation(req: Request, res: Response) {
     try {
@@ -149,11 +143,12 @@ export async function RejectInvitation(req: Request, res: Response) {
         const invitation = await prisma.invitation.findUnique({ where: { id } });
         if (!invitation) {
             res.status(404).json({ error: "Invitation not found" });
-            return;
+            return; // ← ADD THIS
         }
 
         if (invitation.status !== "PENDING") {
             res.status(400).json({ error: "Invitation already responded to" });
+            return; // ← ADD THIS
         }
 
         const updatedInvitation = await prisma.invitation.update({
@@ -166,4 +161,4 @@ export async function RejectInvitation(req: Request, res: Response) {
         console.error("Error rejecting invitation:", err);
         res.status(500).json({ error: "Failed to reject invitation" });
     }
-};
+}
