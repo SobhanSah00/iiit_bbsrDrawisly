@@ -156,7 +156,7 @@ export default function Page() {
 
       if (response.ok) {
         alert("Skills saved successfully!");
-        router.push("/dashboard");
+        router.push("/mainDashboard");
       } else {
         alert(data.message || "Failed to save skills");
       }

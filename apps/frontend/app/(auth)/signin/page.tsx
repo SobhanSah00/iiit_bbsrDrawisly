@@ -45,7 +45,7 @@ export default function SignInPage() {
 
         setUsername("");
         setPassword("");
-        setTimeout(() => router.push("/skillDashboard"), 1000);
+        setTimeout(() => router.push("/mainDashboard"), 1000);
         console.log("User:", data.user);
       } else {
         setMessage(data.error || data.message || "Sign in failed");
