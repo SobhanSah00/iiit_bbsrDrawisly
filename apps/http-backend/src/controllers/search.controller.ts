@@ -30,7 +30,7 @@ export const searchController = async (
 ): Promise<void> => {
   try {
     const { query } = req.body;
-    const userId = req.userId;
+    const userId = req.body.userId;
 
     if (!query || typeof query !== "string") {
       res.status(400).json({
@@ -39,9 +39,8 @@ export const searchController = async (
       return;
     }
 
-    // Fetch user profile directly using the business logic function
     const userProfile = await fetchUserSkills(userId as string);
-    // console.log(userProfile);
+    console.log(userProfile);
 
     if (!userProfile || !userProfile.skill_set) {
       res.status(404).json({
