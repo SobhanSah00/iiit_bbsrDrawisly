@@ -14,6 +14,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  EXPIRED
+}
+
 model User {
   id       String  @id @default(uuid())
   username String  @unique
@@ -31,7 +38,36 @@ model User {
   chat Chat[]
 
   skills UserSkill[]
+
+  sentInvitations     Invitation[] @relation("SentInvitations")
+  receivedInvitations Invitation[] @relation("ReceivedInvitations")
 }
+
+
+model Invitation {
+  id          String            @id @default(uuid())
+
+  // Who sent the invitation
+  sender      User              @relation("SentInvitations", fields: [senderId], references: [id])
+  senderId    String
+
+  // Who received the invitation
+  receiver    User              @relation("ReceivedInvitations", fields: [receiverId], references: [id])
+  receiverId  String
+
+  // Optional message (reason / note)
+  message     String?
+
+  // Status
+  status      InvitationStatus  @default(PENDING)
+
+  // If accepted, later we can attach the created roomId for reference
+  acceptedRoomId String?        
+
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
 
 enum ExperienceLevel {
   BEGINNER
@@ -41,19 +77,19 @@ enum ExperienceLevel {
 }
 
 model UserSkill {
-  id              String           @id @default(uuid())
-  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId          String
+  id     String @id @default(uuid())
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
 
   skillName       String
-  focusArea       String        
+  focusArea       String
   experienceLevel ExperienceLevel
   description     String
 
-  components      String[]         @default([]) 
-  tools           String[]         @default([]) 
+  components String[] @default([])
+  tools      String[] @default([])
 
-  createdAt       DateTime         @default(now())
+  createdAt DateTime @default(now())
 }
 
 model Room {
@@ -78,17 +114,16 @@ model Room {
 }
 
 model SessionRecording {
-  id        String   @id @default(uuid())
-  room      Room     @relation(fields: [roomId], references: [id])
-  roomId    String
+  id     String @id @default(uuid())
+  room   Room   @relation(fields: [roomId], references: [id])
+  roomId String
 
-  url       String
-  size      Int?
-  duration  Int?
-  
+  url      String
+  size     Int?
+  duration Int?
+
   createdAt DateTime @default(now())
 }
-
 
 model Chat {
   seriealNo Int    @default(autoincrement())
