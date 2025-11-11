@@ -1,0 +1,686 @@
+{
+  "users": [
+    {
+      "user_id": "1",
+      "skill_set": [
+        {
+          "skill_name": "DevSecOps",
+          "components": ["CI/CD Security", "Container Security", "Secrets Management", "Vulnerability Scanning"],
+          "tools": ["Jenkins", "GitLab CI", "Trivy", "Vault", "Snyk"],
+          "focus_area": "Security Automation",
+          "experience_level": "Advanced",
+          "description": "Implementing security-first DevOps practices. Expert in integrating automated security checks into CI/CD pipelines, managing secrets at scale, and container vulnerability scanning. Help teams shift security left."
+        },
+        {
+          "skill_name": "Cloud Security",
+          "components": ["AWS Security", "IAM", "Security Groups", "Compliance"],
+          "tools": ["AWS Security Hub", "CloudTrail", "GuardDuty", "Terraform"],
+          "focus_area": "Cloud Infrastructure Security",
+          "experience_level": "Advanced",
+          "description": "Securing cloud infrastructure with best practices. Expert in AWS security services, infrastructure-as-code security, and compliance automation."
+        }
+      ]
+    },
+    {
+      "user_id": "2",
+      "skill_set": [
+        {
+          "skill_name": "Frontend Development",
+          "components": ["React", "State Management", "API Integration", "Responsive Design"],
+          "tools": ["React", "Redux", "TypeScript", "Tailwind CSS"],
+          "focus_area": "Modern Web Applications",
+          "experience_level": "Advanced",
+          "description": "Building responsive, high-performance web applications with React and modern frontend technologies. Expert in state management patterns, component architecture, and performance optimization."
+        },
+        {
+          "skill_name": "Frontend Testing",
+          "components": ["Unit Testing", "Integration Testing", "E2E Testing", "Test Automation"],
+          "tools": ["Jest", "React Testing Library", "Cypress", "Playwright"],
+          "focus_area": "Test-Driven Development",
+          "experience_level": "Intermediate",
+          "description": "Implementing comprehensive testing strategies for frontend applications. Writing maintainable tests with high coverage for components, hooks, and user interactions."
+        }
+      ]
+    },
+    {
+      "user_id": "3",
+      "skill_set": [
+        {
+          "skill_name": "Backend Development",
+          "components": ["RESTful APIs", "Database Design", "Authentication", "Microservices"],
+          "tools": ["Node.js", "Express", "PostgreSQL", "MongoDB", "Redis"],
+          "focus_area": "Scalable API Development",
+          "experience_level": "Advanced",
+          "description": "Building robust, scalable backend systems. Expert in API design, database optimization, caching strategies, and microservices architecture."
+        },
+        {
+          "skill_name": "Database Design",
+          "components": ["Schema Design", "Query Optimization", "Indexing", "Normalization"],
+          "tools": ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+          "focus_area": "High-Performance Databases",
+          "experience_level": "Expert",
+          "description": "Designing efficient database schemas and optimizing queries for high-performance applications. Expert in relational and NoSQL databases."
+        }
+      ]
+    },
+    {
+      "user_id": "4",
+      "skill_set": [
+        {
+          "skill_name": "Kubernetes",
+          "components": ["Container Orchestration", "Pod Management", "Service Mesh", "Auto-scaling"],
+          "tools": ["Kubernetes", "Helm", "Istio", "Prometheus", "Grafana"],
+          "focus_area": "Cloud-Native Architecture",
+          "experience_level": "Expert",
+          "description": "Orchestrating containerized applications at scale. Deep expertise in K8s architecture, networking, storage, and observability."
+        }
+      ]
+    },
+    {
+      "user_id": "5",
+      "skill_set": [
+        {
+          "skill_name": "Machine Learning",
+          "components": ["Deep Learning", "Neural Networks", "Model Training", "Feature Engineering"],
+          "tools": ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Pandas"],
+          "focus_area": "Computer Vision",
+          "experience_level": "Advanced",
+          "description": "Building ML models for image recognition and computer vision tasks. Expert in CNN architectures, transfer learning, and model optimization."
+        },
+        {
+          "skill_name": "Data Science",
+          "components": ["Statistical Analysis", "Data Visualization", "Predictive Modeling", "A/B Testing"],
+          "tools": ["Python", "Pandas", "NumPy", "Matplotlib", "Jupyter"],
+          "focus_area": "Business Analytics",
+          "experience_level": "Intermediate",
+          "description": "Analyzing data to derive business insights. Good understanding of statistical methods and data visualization techniques."
+        }
+      ]
+    },
+    {
+      "user_id": "6",
+      "skill_set": [
+        {
+          "skill_name": "Data Engineering",
+          "components": ["ETL Pipelines", "Data Warehousing", "Stream Processing", "Data Quality"],
+          "tools": ["Apache Spark", "Airflow", "Kafka", "Snowflake", "dbt"],
+          "focus_area": "Big Data Processing",
+          "experience_level": "Advanced",
+          "description": "Designing and implementing large-scale data pipelines. Expert in batch and stream processing, data modeling, and orchestration."
+        }
+      ]
+    },
+    {
+      "user_id": "7",
+      "skill_set": [
+        {
+          "skill_name": "React Native Development",
+          "components": ["Mobile UI", "Navigation", "Native Modules", "Performance"],
+          "tools": ["React Native", "Expo", "Redux", "AsyncStorage"],
+          "focus_area": "Cross-Platform Mobile Apps",
+          "experience_level": "Intermediate",
+          "description": "Building cross-platform mobile applications. Good understanding of React Native architecture, navigation patterns, and integrating native functionality."
+        }
+      ]
+    },
+    {
+      "user_id": "8",
+      "skill_set": [
+        {
+          "skill_name": "UI/UX Design",
+          "components": ["User Research", "Wireframing", "Prototyping", "Design Systems"],
+          "tools": ["Figma", "Adobe XD", "Sketch", "InVision"],
+          "focus_area": "Product Design",
+          "experience_level": "Advanced",
+          "description": "Creating user-centered designs for web and mobile. Expert in user research methodologies, information architecture, and building scalable design systems."
+        }
+      ]
+    },
+    {
+      "user_id": "9",
+      "skill_set": [
+        {
+          "skill_name": "iOS Development",
+          "components": ["Swift", "UIKit", "SwiftUI", "Core Data"],
+          "tools": ["Xcode", "Swift", "CocoaPods", "TestFlight"],
+          "focus_area": "Native iOS Applications",
+          "experience_level": "Advanced",
+          "description": "Building native iOS applications with Swift. Expert in iOS frameworks, app architecture patterns (MVVM, MVI), and App Store deployment."
+        }
+      ]
+    },
+    {
+      "user_id": "10",
+      "skill_set": [
+        {
+          "skill_name": "Android Development",
+          "components": ["Kotlin", "Jetpack Compose", "Room Database", "MVVM"],
+          "tools": ["Android Studio", "Kotlin", "Gradle", "Retrofit"],
+          "focus_area": "Modern Android Apps",
+          "experience_level": "Intermediate",
+          "description": "Developing Android applications with Kotlin and modern Android architecture. Understanding of Jetpack libraries and dependency injection."
+        }
+      ]
+    },
+    {
+      "user_id": "11",
+      "skill_set": [
+        {
+          "skill_name": "Cloud Architecture",
+          "components": ["AWS", "System Design", "Scalability", "Cost Optimization"],
+          "tools": ["AWS", "Terraform", "CloudFormation", "Docker"],
+          "focus_area": "Enterprise Cloud Solutions",
+          "experience_level": "Expert",
+          "description": "Designing and implementing enterprise cloud architectures. Expert in multi-region deployments, disaster recovery, and cost optimization."
+        }
+      ]
+    },
+    {
+      "user_id": "12",
+      "skill_set": [
+        {
+          "skill_name": "Python Development",
+          "components": ["Web Scraping", "Automation", "Scripting", "Data Analysis"],
+          "tools": ["Python", "BeautifulSoup", "Selenium", "Pandas"],
+          "focus_area": "Automation & Scripting",
+          "experience_level": "Intermediate",
+          "description": "Automating tasks and building scripts for data collection and processing. Good knowledge of Python libraries and automation frameworks."
+        }
+      ]
+    },
+    {
+      "user_id": "13",
+      "skill_set": [
+        {
+          "skill_name": "Blockchain Development",
+          "components": ["Smart Contracts", "Solidity", "Web3", "DeFi"],
+          "tools": ["Ethereum", "Solidity", "Hardhat", "Web3.js"],
+          "focus_area": "Decentralized Applications",
+          "experience_level": "Intermediate",
+          "description": "Building decentralized applications and smart contracts. Understanding of blockchain fundamentals, token standards, and DeFi protocols."
+        }
+      ]
+    },
+    {
+      "user_id": "14",
+      "skill_set": [
+        {
+          "skill_name": "Game Development",
+          "components": ["Unity", "Game Physics", "3D Modeling", "Gameplay Programming"],
+          "tools": ["Unity", "C#", "Blender", "Photoshop"],
+          "focus_area": "3D Game Development",
+          "experience_level": "Advanced",
+          "description": "Creating immersive 3D games with Unity. Expert in game mechanics, physics systems, and optimization."
+        }
+      ]
+    },
+    {
+      "user_id": "15",
+      "skill_set": [
+        {
+          "skill_name": "Cybersecurity",
+          "components": ["Penetration Testing", "Security Audits", "Threat Analysis", "Incident Response"],
+          "tools": ["Kali Linux", "Metasploit", "Burp Suite", "Wireshark"],
+          "focus_area": "Application Security",
+          "experience_level": "Advanced",
+          "description": "Identifying and mitigating security vulnerabilities. Expert in penetration testing methodologies and secure coding practices."
+        }
+      ]
+    },
+    {
+      "user_id": "16",
+      "skill_set": [
+        {
+          "skill_name": "Technical Writing",
+          "components": ["Documentation", "API Docs", "Tutorials", "Content Strategy"],
+          "tools": ["Markdown", "Confluence", "ReadMe", "GitBook"],
+          "focus_area": "Developer Documentation",
+          "experience_level": "Advanced",
+          "description": "Creating clear, comprehensive technical documentation. Expert in explaining complex concepts and API documentation."
+        }
+      ]
+    },
+    {
+      "user_id": "17",
+      "skill_set": [
+        {
+          "skill_name": "GraphQL",
+          "components": ["Schema Design", "Resolvers", "Query Optimization", "Federation"],
+          "tools": ["Apollo Server", "GraphQL", "TypeGraphQL", "Prisma"],
+          "focus_area": "API Development",
+          "experience_level": "Intermediate",
+          "description": "Building flexible APIs with GraphQL. Understanding of schema design, resolvers, and query optimization."
+        }
+      ]
+    },
+    {
+      "user_id": "18",
+      "skill_set": [
+        {
+          "skill_name": "DevOps",
+          "components": ["CI/CD", "Infrastructure as Code", "Monitoring", "Automation"],
+          "tools": ["Jenkins", "GitLab CI", "Ansible", "Terraform", "Docker"],
+          "focus_area": "Continuous Delivery",
+          "experience_level": "Advanced",
+          "description": "Automating deployment pipelines and infrastructure management. Expert in CI/CD best practices and infrastructure as code."
+        }
+      ]
+    },
+    {
+      "user_id": "19",
+      "skill_set": [
+        {
+          "skill_name": "System Design",
+          "components": ["Architecture Patterns", "Scalability", "Distributed Systems", "Load Balancing"],
+          "tools": ["Design Patterns", "Microservices", "Message Queues", "Caching"],
+          "focus_area": "Large Scale Systems",
+          "experience_level": "Expert",
+          "description": "Designing scalable, fault-tolerant systems. Expert in distributed systems architecture and system trade-offs."
+        }
+      ]
+    },
+    {
+      "user_id": "20",
+      "skill_set": [
+        {
+          "skill_name": "PHP Development",
+          "components": ["Laravel", "MVC", "RESTful APIs", "Database Integration"],
+          "tools": ["PHP", "Laravel", "MySQL", "Composer"],
+          "focus_area": "Web Applications",
+          "experience_level": "Intermediate",
+          "description": "Building web applications with PHP and Laravel. Good understanding of MVC patterns and ORM."
+        }
+      ]
+    },
+    {
+      "user_id": "21",
+      "skill_set": [
+        {
+          "skill_name": "Ruby on Rails",
+          "components": ["MVC Framework", "Active Record", "API Development", "Testing"],
+          "tools": ["Ruby", "Rails", "RSpec", "PostgreSQL"],
+          "focus_area": "Rapid Web Development",
+          "experience_level": "Advanced",
+          "description": "Building full-stack web applications rapidly with Rails. Expert in Rails conventions and testing practices."
+        }
+      ]
+    },
+    {
+      "user_id": "22",
+      "skill_set": [
+        {
+          "skill_name": "Go Development",
+          "components": ["Concurrency", "Microservices", "Performance", "APIs"],
+          "tools": ["Go", "Gin", "gRPC", "Docker"],
+          "focus_area": "High-Performance Services",
+          "experience_level": "Intermediate",
+          "description": "Building efficient, concurrent services with Go. Understanding of goroutines and channels."
+        }
+      ]
+    },
+    {
+      "user_id": "23",
+      "skill_set": [
+        {
+          "skill_name": "Rust Development",
+          "components": ["Memory Safety", "Systems Programming", "Performance", "Concurrency"],
+          "tools": ["Rust", "Cargo", "Tokio", "actix-web"],
+          "focus_area": "Systems Programming",
+          "experience_level": "Intermediate",
+          "description": "Writing safe, fast systems code with Rust. Understanding of ownership and lifetimes."
+        }
+      ]
+    },
+    {
+      "user_id": "24",
+      "skill_set": [
+        {
+          "skill_name": "Flutter Development",
+          "components": ["Cross-Platform UI", "State Management", "Widgets", "Animations"],
+          "tools": ["Flutter", "Dart", "Provider", "Firebase"],
+          "focus_area": "Mobile App Development",
+          "experience_level": "Intermediate",
+          "description": "Building beautiful cross-platform mobile apps with Flutter. Good knowledge of widget composition."
+        }
+      ]
+    },
+    {
+      "user_id": "25",
+      "skill_set": [
+        {
+          "skill_name": "Quality Assurance",
+          "components": ["Test Planning", "Manual Testing", "Bug Tracking", "Automation"],
+          "tools": ["Jira", "TestRail", "Postman", "Selenium"],
+          "focus_area": "Software Testing",
+          "experience_level": "Advanced",
+          "description": "Ensuring software quality through comprehensive testing. Expert in test case design and bug lifecycle."
+        }
+      ]
+    },
+    {
+      "user_id": "26",
+      "skill_set": [
+        {
+          "skill_name": "Product Management",
+          "components": ["Product Strategy", "Roadmapping", "User Stories", "Stakeholder Management"],
+          "tools": ["Jira", "Confluence", "Miro", "Aha!"],
+          "focus_area": "Product Development",
+          "experience_level": "Advanced",
+          "description": "Defining product vision and strategy. Expert in prioritization, user story mapping, and cross-functional collaboration."
+        }
+      ]
+    },
+    {
+      "user_id": "27",
+      "skill_set": [
+        {
+          "skill_name": "Vue.js Development",
+          "components": ["Component Design", "Vuex", "Vue Router", "Composition API"],
+          "tools": ["Vue.js", "Nuxt.js", "Vuex", "Vite"],
+          "focus_area": "Progressive Web Apps",
+          "experience_level": "Intermediate",
+          "description": "Building reactive web applications with Vue.js. Good understanding of Vue ecosystem and state management."
+        }
+      ]
+    },
+    {
+      "user_id": "28",
+      "skill_set": [
+        {
+          "skill_name": "Angular Development",
+          "components": ["TypeScript", "RxJS", "Services", "Forms"],
+          "tools": ["Angular", "TypeScript", "RxJS", "NgRx"],
+          "focus_area": "Enterprise Applications",
+          "experience_level": "Advanced",
+          "description": "Developing enterprise-scale applications with Angular. Expert in reactive programming and Angular architecture."
+        }
+      ]
+    },
+    {
+      "user_id": "29",
+      "skill_set": [
+        {
+          "skill_name": "Salesforce Development",
+          "components": ["Apex", "Lightning Components", "SOQL", "Triggers"],
+          "tools": ["Salesforce", "Apex", "Lightning", "VS Code"],
+          "focus_area": "CRM Customization",
+          "experience_level": "Intermediate",
+          "description": "Customizing Salesforce CRM with Apex and Lightning components. Understanding of Salesforce architecture."
+        }
+      ]
+    },
+    {
+      "user_id": "30",
+      "skill_set": [
+        {
+          "skill_name": "SAP Development",
+          "components": ["ABAP", "SAP HANA", "Fiori", "Integration"],
+          "tools": ["SAP", "ABAP", "SAP HANA", "SAP Fiori"],
+          "focus_area": "Enterprise Solutions",
+          "experience_level": "Advanced",
+          "description": "Developing SAP solutions and customizations. Expert in ABAP programming and SAP integration."
+        }
+      ]
+    },
+    {
+      "user_id": "31",
+      "skill_set": [
+        {
+          "skill_name": "Computer Vision",
+          "components": ["Image Processing", "Object Detection", "Face Recognition", "OCR"],
+          "tools": ["OpenCV", "YOLO", "TensorFlow", "Python"],
+          "focus_area": "Visual AI",
+          "experience_level": "Advanced",
+          "description": "Implementing computer vision solutions. Expert in image processing algorithms and deep learning for vision."
+        }
+      ]
+    },
+    {
+      "user_id": "32",
+      "skill_set": [
+        {
+          "skill_name": "Natural Language Processing",
+          "components": ["Text Classification", "Named Entity Recognition", "Sentiment Analysis", "Language Models"],
+          "tools": ["Python", "NLTK", "SpaCy", "Transformers", "Hugging Face"],
+          "focus_area": "Text Analytics",
+          "experience_level": "Intermediate",
+          "description": "Processing and analyzing natural language. Good understanding of NLP techniques and transformer models."
+        }
+      ]
+    },
+    {
+      "user_id": "33",
+      "skill_set": [
+        {
+          "skill_name": "Embedded Systems",
+          "components": ["Microcontrollers", "Real-Time OS", "Hardware Integration", "Low-Level Programming"],
+          "tools": ["C", "C++", "Arduino", "Raspberry Pi", "ARM"],
+          "focus_area": "IoT Development",
+          "experience_level": "Advanced",
+          "description": "Developing embedded systems and IoT devices. Expert in microcontroller programming and hardware interfacing."
+        }
+      ]
+    },
+    {
+      "user_id": "34",
+      "skill_set": [
+        {
+          "skill_name": "Network Engineering",
+          "components": ["Routing", "Switching", "Firewall Configuration", "Network Security"],
+          "tools": ["Cisco", "Juniper", "Wireshark", "pfSense"],
+          "focus_area": "Enterprise Networking",
+          "experience_level": "Advanced",
+          "description": "Designing and managing enterprise networks. Expert in network protocols and security configurations."
+        }
+      ]
+    },
+    {
+      "user_id": "35",
+      "skill_set": [
+        {
+          "skill_name": "Linux System Administration",
+          "components": ["Server Management", "Shell Scripting", "Security", "Performance Tuning"],
+          "tools": ["Linux", "Bash", "systemd", "Ansible"],
+          "focus_area": "Server Infrastructure",
+          "experience_level": "Expert",
+          "description": "Managing Linux servers and infrastructure. Expert in automation, security hardening, and performance optimization."
+        }
+      ]
+    },
+    {
+      "user_id": "36",
+      "skill_set": [
+        {
+          "skill_name": "Windows Server Administration",
+          "components": ["Active Directory", "PowerShell", "Group Policy", "IIS"],
+          "tools": ["Windows Server", "PowerShell", "Active Directory", "SCCM"],
+          "focus_area": "Enterprise IT",
+          "experience_level": "Advanced",
+          "description": "Managing Windows Server infrastructure. Expert in Active Directory, automation with PowerShell."
+        }
+      ]
+    },
+    {
+      "user_id": "37",
+      "skill_set": [
+        {
+          "skill_name": "Agile Coaching",
+          "components": ["Scrum", "Kanban", "Team Facilitation", "Retrospectives"],
+          "tools": ["Jira", "Confluence", "Miro", "Trello"],
+          "focus_area": "Team Transformation",
+          "experience_level": "Advanced",
+          "description": "Coaching teams in agile methodologies. Expert in Scrum framework and continuous improvement practices."
+        }
+      ]
+    },
+    {
+      "user_id": "38",
+      "skill_set": [
+        {
+          "skill_name": "Business Analysis",
+          "components": ["Requirements Gathering", "Process Mapping", "Stakeholder Analysis", "Use Cases"],
+          "tools": ["Jira", "Confluence", "Visio", "Lucidchart"],
+          "focus_area": "Business Process",
+          "experience_level": "Intermediate",
+          "description": "Bridging business and technology. Good understanding of requirements elicitation and documentation."
+        }
+      ]
+    },
+    {
+      "user_id": "39",
+      "skill_set": [
+        {
+          "skill_name": "SEO & Digital Marketing",
+          "components": ["On-Page SEO", "Link Building", "Analytics", "Content Strategy"],
+          "tools": ["Google Analytics", "SEMrush", "Ahrefs", "Google Search Console"],
+          "focus_area": "Search Optimization",
+          "experience_level": "Intermediate",
+          "description": "Optimizing websites for search engines. Good knowledge of SEO best practices and analytics."
+        }
+      ]
+    },
+    {
+      "user_id": "40",
+      "skill_set": [
+        {
+          "skill_name": "Unreal Engine Development",
+          "components": ["Blueprints", "C++", "Rendering", "Game Mechanics"],
+          "tools": ["Unreal Engine", "C++", "Blender", "Substance Painter"],
+          "focus_area": "AAA Game Development",
+          "experience_level": "Intermediate",
+          "description": "Creating high-fidelity games with Unreal Engine. Understanding of blueprints and C++ integration."
+        }
+      ]
+    },
+    {
+      "user_id": "41",
+      "skill_set": [
+        {
+          "skill_name": "AR/VR Development",
+          "components": ["3D Graphics", "Spatial Audio", "Gesture Recognition", "VR Optimization"],
+          "tools": ["Unity", "Oculus SDK", "ARKit", "ARCore"],
+          "focus_area": "Immersive Experiences",
+          "experience_level": "Intermediate",
+          "description": "Building augmented and virtual reality applications. Good understanding of spatial computing."
+        }
+      ]
+    },
+    {
+      "user_id": "42",
+      "skill_set": [
+        {
+          "skill_name": "SCADA Systems",
+          "components": ["HMI Design", "PLC Programming", "Industrial Protocols", "Process Automation"],
+          "tools": ["Wonderware", "Ignition", "Allen Bradley", "Siemens"],
+          "focus_area": "Industrial Automation",
+          "experience_level": "Advanced",
+          "description": "Developing SCADA systems for industrial automation. Expert in HMI design and PLC integration."
+        }
+      ]
+    },
+    {
+      "user_id": "43",
+      "skill_set": [
+        {
+          "skill_name": "ETL Development",
+          "components": ["Data Integration", "Data Transformation", "Workflow Orchestration", "Data Validation"],
+          "tools": ["Talend", "Informatica", "SSIS", "Apache NiFi"],
+          "focus_area": "Data Integration",
+          "experience_level": "Intermediate",
+          "description": "Building ETL pipelines for data integration. Good understanding of data transformation patterns."
+        }
+      ]
+    },
+    {
+      "user_id": "44",
+      "skill_set": [
+        {
+          "skill_name": "SQL Development",
+          "components": ["Complex Queries", "Stored Procedures", "Performance Tuning", "Query Optimization"],
+          "tools": ["SQL Server", "PostgreSQL", "MySQL", "Oracle"],
+          "focus_area": "Database Programming",
+          "experience_level": "Advanced",
+          "description": "Writing efficient SQL for complex business logic. Expert in query optimization and database tuning."
+        }
+      ]
+    },
+    {
+      "user_id": "45",
+      "skill_set": [
+        {
+          "skill_name": "Power BI",
+          "components": ["Data Modeling", "DAX", "Report Design", "Data Visualization"],
+          "tools": ["Power BI", "DAX", "Power Query", "Excel"],
+          "focus_area": "Business Intelligence",
+          "experience_level": "Intermediate",
+          "description": "Creating interactive dashboards and reports. Good knowledge of DAX and data modeling."
+        }
+      ]
+    },
+    {
+      "user_id": "46",
+      "skill_set": [
+        {
+          "skill_name": "Tableau Development",
+          "components": ["Dashboard Design", "Calculated Fields", "Data Blending", "Story telling"],
+          "tools": ["Tableau", "SQL", "Excel", "Alteryx"],
+          "focus_area": "Data Visualization",
+          "experience_level": "Advanced",
+          "description": "Building compelling data visualizations. Expert in dashboard design and storytelling with data."
+        }
+      ]
+    },
+    {
+      "user_id": "47",
+      "skill_set": [
+        {
+          "skill_name": "Jenkins Administration",
+          "components": ["Pipeline as Code", "Plugin Management", "Build Automation", "Integration"],
+          "tools": ["Jenkins", "Groovy", "Docker", "Git"],
+          "focus_area": "CI/CD Infrastructure",
+          "experience_level": "Advanced",
+          "description": "Managing Jenkins infrastructure for continuous integration. Expert in pipeline development."
+        }
+      ]
+    },
+    {
+      "user_id": "48",
+      "skill_set": [
+        {
+          "skill_name": "Apache Kafka",
+          "components": ["Stream Processing", "Event Architecture", "Topics", "Producers/Consumers"],
+          "tools": ["Kafka", "Confluent", "Kafka Streams", "Schema Registry"],
+          "focus_area": "Event Streaming",
+          "experience_level": "Intermediate",
+          "description": "Building event-driven architectures with Kafka. Understanding of stream processing concepts."
+        }
+      ]
+    },
+    {
+      "user_id": "49",
+      "skill_set": [
+        {
+          "skill_name": "Redis",
+          "components": ["Caching Strategies", "Data Structures", "Pub/Sub", "Performance"],
+          "tools": ["Redis", "Redis Cluster", "Redis Sentinel", "RedisInsight"],
+          "focus_area": "In-Memory Data Store",
+          "experience_level": "Intermediate",
+          "description": "Implementing caching and real-time features with Redis. Good understanding of Redis data structures."
+        }
+      ]
+    },
+    {
+      "user_id": "50",
+      "skill_set": [
+        {
+          "skill_name": "Elasticsearch",
+          "components": ["Full-Text Search", "Index Design", "Query DSL", "Aggregations"],
+          "tools": ["Elasticsearch", "Kibana", "Logstash", "Beats"],
+          "focus_area": "Search & Analytics",
+          "experience_level": "Advanced",
+          "description": "Implementing search and analytics solutions with Elasticsearch. Expert in index optimization and query design."
+        }
+      ]
+    }
+  ]
+}

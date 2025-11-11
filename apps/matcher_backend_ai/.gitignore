@@ -1,0 +1,5 @@
+venv
+checker
+__pycache__
+.env
+/d3_backend_ai
